@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sally June Wendo | Marketer & Social Media Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #667EEA;
+            --secondary: #764BA2;
+            --accent: #F093FB;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --vibrant: #4FD1C5;
+            --text: #2D3748;
+            --success: #68D391;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Infographics */
+        .infographics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .infographic-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--vibrant);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .infographic-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--vibrant);
+        }
+
+        .infographic-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(79, 209, 197, 0.2);
+        }
+
+        .infographic-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .progress-container {
+            background: #f0f0f0;
+            border-radius: 10px;
+            height: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateX(5px);
+        }
+
+        .skill-category h3 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 i {
+            color: var(--primary);
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .skill-category li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .chart-wrapper {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+        }
+
+        /* Experience with Images */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .experience-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            color: white;
+        }
+
+        .experience-date {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .experience-content {
+            padding: 30px;
+        }
+
+        .experience-content h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        .experience-content h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .experience-content ul {
+            list-style: none;
+        }
+
+        .experience-content li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .experience-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .experience-content li:last-child {
+            border-bottom: none;
+        }
+
+        /* Unique Selling Points */
+        .usp-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .usp-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .usp-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .usp-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .usp-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .usp-description {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--accent), var(--vibrant));
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .title {
+                font-size: 1.4rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .infographics,
+            .skills-grid,
+            .experience-grid,
+            .usp-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content fade-in">
+            <h1>Sally June Wendo</h1>
+            <p class="title">Marketer & Social Media Assistant</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254792383884</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>wendookelo@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Nairobi, Kenya</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Key Metrics Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Performance Metrics</h2>
+            <div class="infographics">
+                <div class="infographic-item">
+                    <span class="infographic-number">150%</span>
+                    <div>Newsletter Growth</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="infographic-item">
+                    <span class="infographic-number">500+</span>
+                    <div>Community Members</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="infographic-item">
+                    <span class="infographic-number">50+</span>
+                    <div>Content Pieces</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="infographic-item">
+                    <span class="infographic-number">100%</span>
+                    <div>Client Satisfaction</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 95%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Profile -->
+    <section>
+        <div class="container">
+            <div class="card fade-in">
+                <h2 class="section-title">Professional Profile</h2>
+                <p>A highly motivated and self-assured content executor and social media professional with a proven ability to assist managers in optimizing their time by efficiently handling social media and digital marketing tasks. Demonstrates exceptional multitasking and organizational skills and brings a strong sense of confidentiality, discretion, tact, diplomacy, and professionalism.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Distribution -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Professional Skills Distribution</h2>
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Competencies -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-laptop-code"></i> Technical & Administrative</h3>
+                    <ul>
+                        <li>Market Research & Data Entry</li>
+                        <li>Social Media Management</li>
+                        <li>Front Office & File Management</li>
+                        <li>POS & Business Administration</li>
+                        <li>Email & Document Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-users"></i> Interpersonal Skills</h3>
+                    <ul>
+                        <li>Customer Service & Relations</li>
+                        <li>Negotiation & Professionalism</li>
+                        <li>Excellent Communication Skills</li>
+                        <li>Relationship Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tools"></i> Technologies</h3>
+                    <ul>
+                        <li>G-Suite, Microsoft Suite</li>
+                        <li>Slack, Asana, Trello</li>
+                        <li>Xero, WordPress, Convertkit</li>
+                        <li>ICT Proficiency & Reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience with Images -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-grid">
+                <!-- Community Management Intern -->
+                <div class="experience-card fade-in">
+                    <div class="experience-image" style="background-image: url('https://images.unsplash.com/photo-1558402529-d2638a7023e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                        <div class="experience-overlay">
+                            <span class="experience-date">Feb 2025 - July 2025</span>
+                            <h3>Community Management Intern</h3>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <h4>Beyond The Savannah, Nairobi, Kenya</h4>
+                        <ul>
+                            <li>Developed and maintained comprehensive content calendar for WhatsApp community channel with 500+ members</li>
+                            <li>Posted daily updates sharing remote job opportunities and career resources</li>
+                            <li>Served as accountability partner for high-tier newsletter subscribers, providing personalized career guidance</li>
+                            <li>Wrote and edited engaging copy for newsletters maintaining consistent brand voice</li>
+                            <li>Collected and analyzed community feedback, compiling detailed reports to enhance user experience</li>
+                            <li>Collaborated with team to develop and implement quarterly growth strategies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Creative Intern -->
+                <div class="experience-card fade-in">
+                    <div class="experience-image" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                        <div class="experience-overlay">
+                            <span class="experience-date">Feb 2023 - Apr 2023</span>
+                            <h3>Creative Intern (Research & Promotion)</h3>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <h4>Kegh Studios, Nairobi, Kenya</h4>
+                        <ul>
+                            <li>Pitched creative concepts for podcast episodes and special segments</li>
+                            <li>Organized research findings and developed detailed, accurate scripts</li>
+                            <li>Managed technical aspects of podcast production including episode uploading</li>
+                            <li>Wrote compelling blurbs and summaries to engage listeners</li>
+                            <li>Developed comprehensive social media strategies to promote podcast episodes</li>
+                            <li>Engaged with audience across multiple platforms to build community</li>
+                            <li>Stayed current with industry trends to inform content creation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Communication Lead Assistant -->
+                <div class="experience-card fade-in">
+                    <div class="experience-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                        <div class="experience-overlay">
+                            <span class="experience-date">Mar 2022 - Aug 2022</span>
+                            <h3>Communication Lead Assistant</h3>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <h4>GNectar Publishing – East Atlanta, USA</h4>
+                        <ul>
+                            <li>Collaborated with internal team to develop and implement communication plans</li>
+                            <li>Identified target audiences and conducted competitor research</li>
+                            <li>Pitched and secured author appearances on podcasts, blogs, and magazines</li>
+                            <li>Wrote and edited engaging copy for newsletters, social media, and website content</li>
+                            <li>Managed social media accounts including scheduling and engagement monitoring</li>
+                            <li>Enhanced author visibility and book/audiobook reach across platforms</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Social Media Management Intern -->
+                <div class="experience-card fade-in">
+                    <div class="experience-image" style="background-image: url('https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                        <div class="experience-overlay">
+                            <span class="experience-date">Oct 2021 – Jan 2022</span>
+                            <h3>Social Media Management Intern</h3>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <h4>Recreational Clothing, Nairobi, Kenya</h4>
+                        <ul>
+                            <li>Developed visually appealing email newsletters for targeted audiences</li>
+                            <li>Generated original content for events, product features, and partnerships</li>
+                            <li>Participated in brainstorming sessions for innovative social media campaigns</li>
+                            <li>Conducted research on trends and industry information for content creation</li>
+                            <li>Delivered professional presentations to external stakeholders</li>
+                            <li>Ensured brand consistency across all social media platforms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Me Section -->
+    <section class="usp-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Why Work With Me</h2>
+            <div class="usp-grid">
+                <div class="usp-item fade-in">
+                    <div class="usp-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="usp-title">Audience Growth</div>
+                    <div class="usp-description">Proven track record of expanding community reach and engagement</div>
+                </div>
+                <div class="usp-item fade-in">
+                    <div class="usp-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="usp-title">Strategic Planning</div>
+                    <div class="usp-description">Data-driven approach to social media strategy and content planning</div>
+                </div>
+                <div class="usp-item fade-in">
+                    <div class="usp-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="usp-title">Community Building</div>
+                    <div class="usp-description">Expert in fostering engaged communities and meaningful interactions</div>
+                </div>
+                <div class="usp-item fade-in">
+                    <div class="usp-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div class="usp-title">Content Creation</div>
+                    <div class="usp-description">Creative storytelling across multiple platforms and formats</div>
+                </div>
+                <div class="usp-item fade-in">
+                    <div class="usp-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="usp-title">Brand Amplification</div>
+                    <div class="usp-description">Skilled at elevating brand presence and driving visibility</div>
+                </div>
+                <div class="usp-item fade-in">
+                    <div class="usp-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="usp-title">Partnership Development</div>
+                    <div class="usp-description">Building strategic relationships that drive mutual growth</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Let's Connect</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px; opacity: 0.9;">I am eager to bring my skills in marketing, social media, and administrative support to a dynamic team. I am confident I can help streamline your operations and enhance your brand's digital presence.</p>
+            <a href="mailto:wendookelo@gmail.com" class="cta-button">
+                <i class="fas fa-paper-plane"></i> Contact Me
+            </a>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>wendookelo@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254792383884</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Chart.js for skills distribution
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            
+            // Skills data for the pie chart
+            const skillsChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        'Social Media Management',
+                        'Content Creation', 
+                        'Community Engagement',
+                        'Strategic Planning',
+                        'Analytics & Reporting'
+                    ],
+                    datasets: [{
+                        data: [30, 25, 20, 15, 10],
+                        backgroundColor: [
+                            '#667EEA',
+                            '#764BA2', 
+                            '#F093FB',
+                            '#4FD1C5',
+                            '#68D391'
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                font: {
+                                    family: "'Source Sans Pro', sans-serif",
+                                    size: 14
+                                },
+                                color: '#2D3748',
+                                padding: 20
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Professional Skills Distribution',
+                            font: {
+                                family: "'Poppins', sans-serif",
+                                size: 18,
+                                weight: '600'
+                            },
+                            color: '#2D3748',
+                            padding: 20
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(45, 55, 72, 0.9)',
+                            titleFont: {
+                                family: "'Poppins', sans-serif"
+                            },
+                            bodyFont: {
+                                family: "'Source Sans Pro', sans-serif"
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Animate progress bars on scroll
+            const progressBars = document.querySelectorAll('.progress-bar');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.style.width;
+                        entry.target.style.width = '0';
+                        setTimeout(() => {
+                            entry.target.style.width = width;
+                        }, 300);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            progressBars.forEach(bar => observer.observe(bar));
+
+            // Add fade-in animation to elements when they come into view
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                fadeObserver.observe(el);
+            });
+        });
+
+        // Simple email form handler
+        function handleEmailClick() {
+            const email = 'wendookelo@gmail.com';
+            const subject = 'Portfolio Inquiry - Marketer & Social Media Assistant Position';
+            const body = 'Hello Sally,\n\nI came across your portfolio and would like to connect regarding potential opportunities.\n\nBest regards,';
+            
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        // Update CTA button to use the email function
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', handleEmailClick);
+            }
+        });
+    </script>
+</body>
+</html>
+                    
